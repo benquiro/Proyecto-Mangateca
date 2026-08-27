@@ -1,0 +1,26 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>Burbuja de dialogo manga con libro</title>
+  <desc>Icono de una burbuja de dialogo estilo manga con un libro dentro, en colores vivos</desc>
+
+  <!-- Burbuja de dialogo -->
+  <path d="M100 24 C56 24 24 54 24 90 C24 116 42 138 68 148 L60 176 L92 150 C95 150.3 97.5 150.5 100 150.5 C144 150.5 176 120.5 176 90 C176 54 144 24 100 24 Z" fill="#4FB59B"/>
+
+  <!-- Libro dentro -->
+  <g transform="translate(100,92)">
+    <path d="M-36 -22 L-2 -28 L-2 24 L-36 30 C-39 30.5 -42 28 -42 25 L-42 -14 C-42 -18 -39 -21.5 -36 -22 Z" fill="#F4F1EA"/>
+    <path d="M36 -22 L2 -28 L2 24 L36 30 C39 30.5 42 28 42 25 L42 -14 C42 -18 39 -21.5 36 -22 Z" fill="#FFFFFF"/>
+    <line x1="-32" y1="-8" x2="-8" y2="-11" stroke="#4FB59B" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="-32" y1="2" x2="-8" y2="-1" stroke="#4FB59B" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="-32" y1="12" x2="-14" y2="9" stroke="#4FB59B" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="18" cy="-6" r="9" fill="#F2A93B"/>
+    <path d="M12 -2 L18 -10 L24 -2 Z" fill="#ffffff"/>
+  </g>
+
+  <!-- Destellos -->
+  <g transform="translate(158,42)">
+    <path d="M0 -10 L2.5 -2.5 L10 0 L2.5 2.5 L0 10 L-2.5 2.5 L-10 0 L-2.5 -2.5 Z" fill="#E85D5D"/>
+  </g>
+  <g transform="translate(30,140)">
+    <circle r="5" fill="#FFC94A"/>
+  </g>
+</svg>
