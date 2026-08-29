@@ -23,7 +23,7 @@
                 </a>
 
                 <nav>
-                    <ul class="flex items-center gap-6 text-sm font-medium text-gray-700">
+                    <ul class="flex items-center gap-6 text-sm font-medium text-gray-700 ml-6">
                         <li>
                             <a href="./pages/product-list.html" class="hover:text-indigo-600 transition-colors">
                                 Lista de Productos
@@ -95,36 +95,50 @@
             </section>
         </main>
 
-        <footer>
-            <nav>
-                <h3>EXPLORAR</h3>
-                <ul>
-                    <li><a>LISTA DE PRODUCOS</a></li>
-                    <li><a>LIBROS</a></li>
-                    <li><a>MANGAS</a></li>
-                    <li><a>COMICS</a></li>
-                </ul>
-            </nav>
+        <footer class="bg-[#4FB59B] text-white/80 mt-12">
+            <div class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
 
-            <nav>
-                <h3>INFORMACIÓN LEGAL</h3>
-                <ul>
-                    <li><a>POLÍTICA DE PRIVACIDAD</a></li>
-                    <li><a>TÉRMINOS Y CONDICIONES</a></li>
-                </ul>
-            </nav>
+                <nav>
+                    <h3 class="text-white font-semibold tracking-wide uppercase text-sm mb-4">Explorar</h3>
+                    <ul class="flex flex-col gap-2">
+                        <li><a href="#" class="hover:text-white transition-colors">Lista de Productos</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Libros</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Mangas</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Comics</a></li>
+                    </ul>
+                </nav>
 
-            <address>
-                <h3>CONTACTO</h3>
-                <p>
-                    <a href="mailto:info@mangateca.com">info@mangateca.com</a>
-                    <a href="tel:+1234567890">+1 (234) 567-890</a>
+                <nav>
+                    <h3 class="text-white font-semibold tracking-wide uppercase text-sm mb-4">Información Legal</h3>
+                    <ul class="flex flex-col gap-2">
+                        <li><a href="#" class="hover:text-white transition-colors">Política de Privacidad</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Términos y Condiciones</a></li>
+                    </ul>
+                </nav>
+
+                <address class="not-italic">
+                    <h3 class="text-white font-semibold tracking-wide uppercase text-sm mb-4">Contactos</h3>
+                    <ul class="flex flex-col gap-2">
+                        <li>
+                            <a href="mailto:info@mangateca.com" class="hover:text-white transition-colors">
+                                info@mangateca.com
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tel:+1234567890" class="hover:text-white transition-colors">
+                                +1 (234) 567-890
+                            </a>
+                        </li>
+                    </ul>
+                </address>
+
+            </div>
+
+            <div class="border-t border-white/20">
+                <p class="max-w-7xl mx-auto px-6 py-4 text-center">
+                    <small class="text-white/60">&copy; 2024 Mangateca. Todos los derechos reservados.</small>
                 </p>
-            </address>
-            
-            <p>
-                <small>&copy; 2024 Mangateca. Todos los derechos reservados.</small>
-            </p>
+            </div>
         </footer>
     </body>
 </html>
