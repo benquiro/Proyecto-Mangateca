@@ -1,4 +1,4 @@
-import { renderSimpleProductCard, renderDetailedProductCard } from '../components/ProductCard.js';
+import { renderSimpleProductCard, renderDetailedProductCard } from '../components/product-card.js';
 import { getProductsByType, categoriesById } from '../../db/products-db.js';
 export function renderProductList(items, containerId) {
     const container = document.getElementById(containerId);

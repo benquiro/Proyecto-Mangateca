@@ -23,7 +23,7 @@ export function renderDetailedProductCard(item) {
     return `
     <a href="${ROOT}pages/product-detail.html?id=${item.id}" class="flex flex-col group cursor-pointer bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative">
         <!-- Favorite button -->
-        <button class="absolute top-3 right-3 z-10 bg-white/80 backdrop-blur-sm p-2 rounded-full text-gray-500 hover:text-red-500 hover:bg-white transition-all opacity-0 group-hover:opacity-100 shadow-sm" onclick="event.preventDefault(); /* add favorite logic here */" aria-label="Añadir a favoritos">
+        <button class="action-btn absolute top-3 right-3 z-10 bg-white/80 backdrop-blur-sm p-2 rounded-full text-gray-500 hover:text-red-500 hover:bg-white transition-all opacity-0 group-hover:opacity-100 shadow-sm" data-action="favorite" data-id="${item.id}" aria-label="Añadir a favoritos">
             <div class="w-5 h-5 bg-current transition-colors" style="mask: url('${ROOT}assets/icons/favorite.svg') no-repeat center / contain; -webkit-mask: url('${ROOT}assets/icons/favorite.svg') no-repeat center / contain;"></div>
         </button>
 
@@ -43,7 +43,7 @@ export function renderDetailedProductCard(item) {
                 <p class="text-xs sm:text-sm text-gray-500 mb-3 line-clamp-1">${item.author}</p>
                 <div class="mt-auto flex items-center justify-between">
                     <span class="font-extrabold text-indigo-600 text-lg">$${item.price.toFixed(2)}</span>
-                    <button class="bg-indigo-50 text-indigo-600 p-2 rounded-full hover:bg-indigo-600 hover:text-white transition-colors flex items-center justify-center" aria-label="Añadir al carrito" onclick="event.preventDefault(); /* add cart logic here */">
+                    <button class="action-btn bg-indigo-50 text-indigo-600 p-2 rounded-full hover:bg-indigo-600 hover:text-white transition-colors flex items-center justify-center" data-action="cart" data-id="${item.id}" aria-label="Añadir al carrito">
                         <img src="${ROOT}assets/icons/cart-add.svg" alt="Añadir" class="w-5 h-5">
                     </button>
                 </div>
@@ -82,12 +82,12 @@ export function renderFullProductDetail(item, categories = []) {
             <div class="flex items-center gap-4 mb-8 pb-8 border-b border-gray-200">
                 <span class="text-4xl font-extrabold text-gray-900 mr-2">$${item.price.toFixed(2)}</span>
 
-                <button class="flex-1 bg-indigo-600 text-white font-bold text-lg py-4 px-6 rounded-xl shadow-md hover:bg-indigo-700 hover:shadow-lg transition-all flex items-center justify-center gap-3" onclick="/* add cart logic here */">
+                <button class="action-btn flex-1 bg-indigo-600 text-white font-bold text-lg py-4 px-6 rounded-xl shadow-md hover:bg-indigo-700 hover:shadow-lg transition-all flex items-center justify-center gap-3" data-action="cart" data-id="${item.id}">
                     <img src="${ROOT}assets/icons/shopping-cart.svg" alt="Carrito" class="w-6 h-6 filter invert">
                     Añadir
                 </button>
 
-                <button class="bg-gray-50 text-gray-400 p-4 rounded-xl shadow-sm hover:bg-red-50 hover:text-red-500 transition-all border border-gray-200 flex items-center justify-center" onclick="/* add favorite logic here */" aria-label="Añadir a favoritos">
+                <button class="action-btn bg-gray-50 text-gray-400 p-4 rounded-xl shadow-sm hover:bg-red-50 hover:text-red-500 transition-all border border-gray-200 flex items-center justify-center" data-action="favorite" data-id="${item.id}" aria-label="Añadir a favoritos">
                     <div class="w-7 h-7 bg-current transition-colors" style="mask: url('${ROOT}assets/icons/favorite.svg') no-repeat center / contain; -webkit-mask: url('${ROOT}assets/icons/favorite.svg') no-repeat center / contain;"></div>
                 </button>
             </div>
@@ -113,3 +113,34 @@ export function renderFullProductDetail(item, categories = []) {
     </div>
     `;
 }
+
+// Global Event Listener for Action Buttons (Event Delegation)
+document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.action-btn');
+    if (!btn) return;
+
+    // Los botones de acción viven dentro de un <a>, así que frenamos la navegación
+    e.preventDefault();
+    e.stopPropagation();
+
+    const { action, id } = btn.dataset;
+    const productId = Number(id);
+
+    const actions = {
+        cart: () => {
+            console.log(`[Carrito] Producto ${productId}`);
+            // TODO: addToCart(productId)
+        },
+        favorite: () => {
+            console.log(`[Favorito] Producto ${productId}`);
+            // TODO: toggleFavorite(productId)
+        },
+    };
+
+    if (!actions[action]) {
+        console.warn(`Acción desconocida: "${action}"`);
+        return;
+    }
+
+    actions[action]();
+});

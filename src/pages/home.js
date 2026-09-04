@@ -1,5 +1,5 @@
-import '../services/CacheService.js';
-import { renderProductList, renderDetailedProductList } from '../services/RenderService.js';
+import '../services/cache-service.js';
+import { renderProductList, renderDetailedProductList } from '../services/render-service.js';
 import { ProductType, getProductsByType, searchProductsByTitle } from '../../db/products-db.js';
 
 // Render default categories
