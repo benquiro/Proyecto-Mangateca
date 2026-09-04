@@ -1,14 +1,9 @@
-// database.js
-// Simulación de base de datos en memoria: "tablas" como listas (arrays)
-// y "índices" como mapas (Map) para acceso O(1) por clave primaria.
-
 export const ProductType = Object.freeze({
   BOOK: "BOOK",
   MANGA: "MANGA",
   COMIC: "COMIC",
 });
 
-// ---------- Tabla "categories" ----------
 export const categories = [
   { id: 1, name: "Realismo mágico" },
   { id: 2, name: "Clásico" },
@@ -29,11 +24,7 @@ export const categories = [
   { id: 17, name: "Suspenso" },
 ];
 
-// ---------- Tabla "products" ----------
-// categoryIds referencia por FK a "categories.id" — no se guardan nombres.
-// isbn: null cuando el dato no estaba disponible en la fuente original
-// (no se inventaron valores; se dejó el hueco explícito, tal como sería
-// una columna NULL en una tabla real).
+
 export const products = [
   // ---------- BOOKS ----------
   {
@@ -232,7 +223,7 @@ export const products = [
     imageUrl: "https://covers.openlibrary.org/b/isbn/9780743273565-L.jpg",
   },
 
-// ---------- MANGAS ----------
+  // ---------- MANGAS ----------
   {
     id: 3,
     type: ProductType.MANGA,
@@ -510,30 +501,20 @@ export const products = [
   },
 ];
 
-// ---------- Índices (Map) ----------
-// Simulan un índice por PK: acceso O(1) en vez de recorrer el array entero.
+
 export const productsById = new Map(products.map((p) => [p.id, p]));
 export const categoriesById = new Map(categories.map((c) => [c.id, c]));
 
-// ---------- Funciones de acceso ("queries") ----------
 
-// Equivalente a: SELECT * FROM products WHERE id = ?
 export function getProductById(id) {
   return productsById.get(id);
 }
 
-// Equivalente a: SELECT * FROM categories WHERE id = ?
-export function getCategoryById(id) {
-  return categoriesById.get(id);
-}
 
-// Equivalente a: SELECT * FROM products WHERE type = ?
 export function getProductsByType(type) {
   return products.filter((p) => p.type === type);
 }
 
-// Resuelve las categorías completas de un producto a partir de sus categoryIds.
-// Equivalente a un JOIN products -> categories.
 export function getCategoriesForProduct(productId) {
   const product = productsById.get(productId);
   if (!product) return [];
@@ -542,14 +523,3 @@ export function getCategoriesForProduct(productId) {
     .filter(Boolean);
 }
 
-// Equivalente a: SELECT p.* FROM products p JOIN product_category pc ON ...
-// WHERE pc.category_id = ?
-export function getProductsByCategory(categoryId) {
-  return products.filter((p) => p.categoryIds.includes(categoryId));
-}
-
-// Búsqueda simple por título (para el buscador planeado).
-export function searchProductsByTitle(query) {
-  const normalized = query.trim().toLowerCase();
-  return products.filter((p) => p.title.toLowerCase().includes(normalized));
-}

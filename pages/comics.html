@@ -1,135 +1,140 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Mangateca - Cómics</title>
-        <link rel="stylesheet" href="../css/style.css">
 
-        <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mangateca - Cómics</title>
+    <link rel="stylesheet" href="../css/style.css">
 
-        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-        <!-- Import comics.js for specific page logic -->
-        <script type="module" src="../src/pages/comics.js" defer></script>
-    </head>
+    <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
 
-    <body>
-        <header class="bg-gray-100 shadow-sm border-b border-gray-100">
-            <div class="flex items-center justify-between px-8 py-5">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script type="module" src="../src/pages/comics.js"></script>
+</head>
 
-                <a href="../index.html" class="flex items-center gap-3 shrink-0">
-                    <img src="../assets/icons/favicon.svg" alt="" class="w-10 h-10">
-                    <h1 class="text-4xl font-extrabold text-gray-900 tracking-tight">
-                        Mangateca
-                    </h1>
-                </a>
+<body>
+    <header class="bg-gray-100 shadow-sm border-b border-gray-100">
+        <div class="flex items-center justify-between px-8 py-5">
 
-                <nav>
-                    <ul class="flex items-center gap-6 text-sm font-medium text-gray-700 ml-6">
-                        <li>
-                            <a href="../pages/product-list.html" class="hover:text-indigo-600 transition-colors">
-                                Lista de Productos
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../pages/books.html" class="hover:text-indigo-600 transition-colors">
-                                Libros
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../pages/mangas.html" class="hover:text-indigo-600 transition-colors">
-                                Mangas
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../pages/comics.html" class="text-indigo-600 font-bold hover:text-indigo-700 transition-colors">
-                                Comics
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+            <a href="../index.html" class="flex items-center gap-3 shrink-0">
+                <img src="../assets/icons/favicon.svg" alt="" class="w-10 h-10">
+                <h1 class="text-4xl font-extrabold text-gray-900 tracking-tight">
+                    Mangateca
+                </h1>
+            </a>
 
-                <nav>
-                    <ul class="flex items-center gap-5">
-                        <li>
-                            <a href="" aria-label="Ingresar">
-                                <img src="../assets/icons/user.svg" class="w-5 h-5">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" aria-label="Favoritos">
-                                <img src="../assets/icons/favorite.svg" class="w-5 h-5">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" aria-label="Carrito de compras">
-                                <img src="../assets/icons/shopping-cart.svg" class="w-5 h-5">
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+            <nav>
+                <ul class="flex items-center gap-6 text-sm font-medium text-gray-700 ml-6">
+                    <li>
+                        <a href="../pages/product-list.html" class="hover:text-indigo-600 transition-colors">
+                            Lista de Productos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../pages/books.html" class="hover:text-indigo-600 transition-colors">
+                            Libros
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../pages/mangas.html" class="hover:text-indigo-600 transition-colors">
+                            Mangas
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../pages/comics.html"
+                            class="text-indigo-600 font-bold hover:text-indigo-700 transition-colors">
+                            Comics
+                        </a>
+                    </li>
+                </ul>
+            </nav>
 
-            </div>
-        </header>
+            <nav>
+                <ul class="flex items-center gap-5">
+                    <li>
+                        <a href="#" aria-label="Ingresar">
+                            <img src="../assets/icons/user.svg" class="w-5 h-5" alt="Icono de inicio de sesión">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" aria-label="Favoritos">
+                            <img src="../assets/icons/favorite.svg" class="w-5 h-5" alt="Icono de favoritos">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" aria-label="Carrito de compras">
+                            <img src="../assets/icons/shopping-cart.svg" class="w-5 h-5"
+                                alt="Icono de carrito de compras">
+                        </a>
+                    </li>
+                </ul>
+            </nav>
 
-        <main class="max-w-7xl mx-auto px-6 py-12 min-h-screen">
-            <div class="mb-12 flex flex-col items-center text-center">
-                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Cómics</h2>
-                <p class="mt-4 max-w-2xl text-lg text-gray-500">
-                    Explora nuestra colección de cómics organizados por categoría. Vive aventuras épicas y conoce a tus héroes favoritos.
-                </p>
-            </div>
+        </div>
+    </header>
 
-            <!-- Container for categorized comics -->
-            <div id="comics-by-category-container">
-                <!-- Content injected via JS -->
-            </div>
-        </main>
+    <main class="max-w-7xl mx-auto px-6 py-12 min-h-screen">
+        <div class="mb-12 flex flex-col items-center text-center">
+            <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Cómics</h2>
+            <p class="mt-4 max-w-2xl text-lg text-gray-500">
+                Explora nuestra colección de cómics organizados por categoría. Vive aventuras épicas y conoce a tus
+                héroes favoritos.
+            </p>
+        </div>
 
-        <footer class="bg-[#4FB59B] text-white/80 mt-12">
-            <div class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
+        <!-- Container for categorized comics -->
+        <div id="comics-by-category-container">
 
-                <nav>
-                    <h3 class="text-white font-semibold tracking-wide uppercase text-sm mb-4">Explorar</h3>
-                    <ul class="flex flex-col gap-2">
-                        <li><a href="../pages/product-list.html" class="hover:text-white transition-colors">Lista de Productos</a></li>
-                        <li><a href="../pages/books.html" class="hover:text-white transition-colors">Libros</a></li>
-                        <li><a href="../pages/mangas.html" class="hover:text-white transition-colors">Mangas</a></li>
-                        <li><a href="../pages/comics.html" class="hover:text-white transition-colors">Comics</a></li>
-                    </ul>
-                </nav>
+        </div>
+    </main>
 
-                <nav>
-                    <h3 class="text-white font-semibold tracking-wide uppercase text-sm mb-4">Información Legal</h3>
-                    <ul class="flex flex-col gap-2">
-                        <li><a href="#" class="hover:text-white transition-colors">Política de Privacidad</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Términos y Condiciones</a></li>
-                    </ul>
-                </nav>
+    <footer class="bg-[#4FB59B] text-white/80 mt-12">
+        <div class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
 
-                <address class="not-italic">
-                    <h3 class="text-white font-semibold tracking-wide uppercase text-sm mb-4">Contactos</h3>
-                    <ul class="flex flex-col gap-2">
-                        <li>
-                            <a href="mailto:info@mangateca.com" class="hover:text-white transition-colors">
-                                info@mangateca.com
-                            </a>
-                        </li>
-                        <li>
-                            <a href="tel:+1234567890" class="hover:text-white transition-colors">
-                                +1 (234) 567-890
-                            </a>
-                        </li>
-                    </ul>
-                </address>
+            <nav>
+                <h3 class="text-white font-semibold tracking-wide uppercase text-sm mb-4">Explorar</h3>
+                <ul class="flex flex-col gap-2">
+                    <li><a href="../pages/product-list.html" class="hover:text-white transition-colors">Lista de
+                            Productos</a></li>
+                    <li><a href="../pages/books.html" class="hover:text-white transition-colors">Libros</a></li>
+                    <li><a href="../pages/mangas.html" class="hover:text-white transition-colors">Mangas</a></li>
+                    <li><a href="../pages/comics.html" class="hover:text-white transition-colors">Comics</a></li>
+                </ul>
+            </nav>
 
-            </div>
+            <nav>
+                <h3 class="text-white font-semibold tracking-wide uppercase text-sm mb-4">Información Legal</h3>
+                <ul class="flex flex-col gap-2">
+                    <li><a href="#" class="hover:text-white transition-colors">Política de Privacidad</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Términos y Condiciones</a></li>
+                </ul>
+            </nav>
 
-            <div class="border-t border-white/20">
-                <p class="max-w-7xl mx-auto px-6 py-4 text-center">
-                    <small class="text-white/60">&copy; 2024 Mangateca. Todos los derechos reservados.</small>
-                </p>
-            </div>
-        </footer>
-    </body>
+            <address class="not-italic">
+                <h3 class="text-white font-semibold tracking-wide uppercase text-sm mb-4">Contactos</h3>
+                <ul class="flex flex-col gap-2">
+                    <li>
+                        <a href="mailto:info@mangateca.com" class="hover:text-white transition-colors">
+                            info@mangateca.com
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tel:+1234567890" class="hover:text-white transition-colors">
+                            +1 (234) 567-890
+                        </a>
+                    </li>
+                </ul>
+            </address>
+
+        </div>
+
+        <div class="border-t border-white/20">
+            <p class="max-w-7xl mx-auto px-6 py-4 text-center">
+                <small class="text-white/60">&copy; 2024 Mangateca. Todos los derechos reservados.</small>
+            </p>
+        </div>
+    </footer>
+</body>
+
 </html>

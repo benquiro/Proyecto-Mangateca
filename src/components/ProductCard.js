@@ -1,9 +1,9 @@
-export function renderSimpleProductCard(item) {
-    const isRoot = window.location.pathname.endsWith('/') || window.location.pathname.endsWith('index.html');
-    const pagesPath = isRoot ? './pages/' : './';
+// Raíz del proyecto derivada desde la ubicación de este módulo (src/components/)
+const ROOT = new URL('../../', import.meta.url).href;
 
+export function renderSimpleProductCard(item) {
     return `
-    <a href="${pagesPath}product-detail.html?id=${item.id}" class="flex-none w-40 snap-start group cursor-pointer block">
+    <a href="${ROOT}pages/product-detail.html?id=${item.id}" class="flex-none w-40 snap-start group cursor-pointer block">
         <article>
             <div class="overflow-hidden rounded-lg shadow-md relative">
                 <img
@@ -20,15 +20,11 @@ export function renderSimpleProductCard(item) {
 }
 
 export function renderDetailedProductCard(item) {
-    const isRoot = window.location.pathname.endsWith('/') || window.location.pathname.endsWith('index.html');
-    const basePath = isRoot ? './' : '../';
-    const pagesPath = isRoot ? './pages/' : './';
-    
     return `
-    <a href="${pagesPath}product-detail.html?id=${item.id}" class="flex flex-col group cursor-pointer bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative">
+    <a href="${ROOT}pages/product-detail.html?id=${item.id}" class="flex flex-col group cursor-pointer bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative">
         <!-- Favorite button -->
         <button class="absolute top-3 right-3 z-10 bg-white/80 backdrop-blur-sm p-2 rounded-full text-gray-500 hover:text-red-500 hover:bg-white transition-all opacity-0 group-hover:opacity-100 shadow-sm" onclick="event.preventDefault(); /* add favorite logic here */" aria-label="Añadir a favoritos">
-            <div class="w-5 h-5 bg-current transition-colors" style="mask: url('${basePath}assets/icons/favorite.svg') no-repeat center / contain; -webkit-mask: url('${basePath}assets/icons/favorite.svg') no-repeat center / contain;"></div>
+            <div class="w-5 h-5 bg-current transition-colors" style="mask: url('${ROOT}assets/icons/favorite.svg') no-repeat center / contain; -webkit-mask: url('${ROOT}assets/icons/favorite.svg') no-repeat center / contain;"></div>
         </button>
 
         <article class="flex flex-col h-full">
@@ -48,7 +44,7 @@ export function renderDetailedProductCard(item) {
                 <div class="mt-auto flex items-center justify-between">
                     <span class="font-extrabold text-indigo-600 text-lg">$${item.price.toFixed(2)}</span>
                     <button class="bg-indigo-50 text-indigo-600 p-2 rounded-full hover:bg-indigo-600 hover:text-white transition-colors flex items-center justify-center" aria-label="Añadir al carrito" onclick="event.preventDefault(); /* add cart logic here */">
-                        <img src="${basePath}assets/icons/cart-add.svg" alt="Añadir" class="w-5 h-5">
+                        <img src="${ROOT}assets/icons/cart-add.svg" alt="Añadir" class="w-5 h-5">
                     </button>
                 </div>
             </div>
@@ -58,10 +54,7 @@ export function renderDetailedProductCard(item) {
 }
 
 export function renderFullProductDetail(item, categories = []) {
-    const isRoot = window.location.pathname.endsWith('/') || window.location.pathname.endsWith('index.html');
-    const basePath = isRoot ? './' : '../';
-    
-    const categoryTags = categories.map(cat => 
+    const categoryTags = categories.map(cat =>
         `<span class="px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full text-sm font-medium">${cat.name}</span>`
     ).join('');
 
@@ -69,9 +62,9 @@ export function renderFullProductDetail(item, categories = []) {
     <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
         <!-- Contenedor de Imagen -->
         <div class="shadow-xl bg-gray-100 aspect-[2/3] max-w-md mx-auto w-full sticky top-8">
-            <img 
-                src="${item.imageUrl}" 
-                alt="Portada completa de ${item.title}" 
+            <img
+                src="${item.imageUrl}"
+                alt="Portada completa de ${item.title}"
                 class="w-full h-full object-cover"
             >
         </div>
@@ -82,20 +75,20 @@ export function renderFullProductDetail(item, categories = []) {
                 ${categoryTags}
                 <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm font-medium">${item.type}</span>
             </div>
-            
+
             <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-2 leading-tight">${item.title}</h1>
             <p class="text-xl text-gray-500 font-medium mb-6">por <span class="text-indigo-600">${item.author}</span></p>
-            
+
             <div class="flex items-center gap-4 mb-8 pb-8 border-b border-gray-200">
                 <span class="text-4xl font-extrabold text-gray-900 mr-2">$${item.price.toFixed(2)}</span>
-                
+
                 <button class="flex-1 bg-indigo-600 text-white font-bold text-lg py-4 px-6 rounded-xl shadow-md hover:bg-indigo-700 hover:shadow-lg transition-all flex items-center justify-center gap-3" onclick="/* add cart logic here */">
-                    <img src="${basePath}assets/icons/shopping-cart.svg" alt="Carrito" class="w-6 h-6 filter invert">
+                    <img src="${ROOT}assets/icons/shopping-cart.svg" alt="Carrito" class="w-6 h-6 filter invert">
                     Añadir
                 </button>
-                
+
                 <button class="bg-gray-50 text-gray-400 p-4 rounded-xl shadow-sm hover:bg-red-50 hover:text-red-500 transition-all border border-gray-200 flex items-center justify-center" onclick="/* add favorite logic here */" aria-label="Añadir a favoritos">
-                    <div class="w-7 h-7 bg-current transition-colors" style="mask: url('${basePath}assets/icons/favorite.svg') no-repeat center / contain; -webkit-mask: url('${basePath}assets/icons/favorite.svg') no-repeat center / contain;"></div>
+                    <div class="w-7 h-7 bg-current transition-colors" style="mask: url('${ROOT}assets/icons/favorite.svg') no-repeat center / contain; -webkit-mask: url('${ROOT}assets/icons/favorite.svg') no-repeat center / contain;"></div>
                 </button>
             </div>
 
@@ -109,7 +102,7 @@ export function renderFullProductDetail(item, categories = []) {
                 <ul class="space-y-2 text-gray-600">
                     ${item.isbn ? `<li class="flex items-center"><strong class="w-32 text-gray-900">ISBN:</strong> <span>${item.isbn}</span></li>` : ''}
                     <li class="flex items-center"><strong class="w-32 text-gray-900">Publicación:</strong> <span>${item.publicationDate}</span></li>
-                    <li class="flex items-center"><strong class="w-32 text-gray-900">Disponibilidad:</strong> 
+                    <li class="flex items-center"><strong class="w-32 text-gray-900">Disponibilidad:</strong>
                         <span class="${item.available ? 'text-green-600 font-semibold' : 'text-red-600 font-semibold'}">
                             ${item.available ? 'En Stock' : 'Agotado'}
                         </span>
