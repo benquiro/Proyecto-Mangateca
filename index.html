@@ -74,6 +74,26 @@
     </header>
 
     <main>
+        <!-- Hero & Search -->
+        <section class="bg-gradient-to-b from-indigo-50 to-white py-12 mb-8">
+            <div class="max-w-3xl mx-auto px-4 text-center">
+                <h2 class="text-3xl font-extrabold text-gray-900 mb-6">¿Qué estás buscando hoy?</h2>
+                <div class="relative max-w-2xl mx-auto text-left">
+                    <input type="text" id="search-input" placeholder="Buscar por título..." class="w-full pl-5 pr-12 py-4 rounded-full shadow-sm border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-lg">
+                    <button id="search-btn" class="absolute right-4 top-1/2 -translate-y-1/2 bg-indigo-600 text-white p-2 rounded-full hover:bg-indigo-700">
+                        <img src="./assets/icons/search.svg" class="w-5 h-5 filter invert" alt="Buscar">
+                    </button>
+                    
+                    <!-- Dropdown de resultados -->
+                    <div id="search-dropdown" class="absolute left-0 right-0 top-full mt-2 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden z-50 hidden max-h-96 overflow-y-auto">
+                        <ul id="search-results-list" class="divide-y divide-gray-100">
+                            <!-- Resultados insertados dinámicamente -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="py-8">
             <h2 class="text-xl font-bold mb-4 px-4">Libros</h2>
             <div class="flex gap-4 overflow-x-auto px-4 pb-4 snap-x snap-mandatory scrollbar-hide" id="book-list"></div>
