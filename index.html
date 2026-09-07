@@ -1,93 +1,169 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Mangateca</title>
-        <link rel="stylesheet" href="css/style.css">
 
-        <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
-        <script src="src/main.js" defer></script>
-        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    </head>
-    <body>
-        <header>
-            <h1>Mangateca</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mangateca</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="icon" type="image/svg+xml" href="./assets/icons/favicon.svg">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script type="module" src="src/pages/home.js"></script>
+</head>
+
+<body>
+    <header class="bg-gray-100 shadow-sm border-b border-gray-100">
+        <div class="flex items-center justify-between px-8 py-5">
+
+            <a href="./index.html" class="flex items-center gap-3 shrink-0">
+                <img src="./assets/icons/favicon.svg" alt="" class="w-10 h-10">
+                <h1 class="text-4xl font-extrabold text-gray-900 tracking-tight">
+                    Mangateca
+                </h1>
+            </a>
 
             <nav>
-                <ul>
-                    <li><a>LISTA DE PRODUCTOS</a></li>
-                    <li><a>LIBROS</a></li>
-                    <li><a>MANGAS</a></li>
-                    <li><a>COMICS</a></li>
+                <ul class="flex items-center gap-6 text-sm font-medium text-gray-700 ml-6">
+                    <li>
+                        <a href="./pages/product-list.html" class="hover:text-indigo-600 transition-colors">
+                            Lista de Productos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./pages/books.html" class="hover:text-indigo-600 transition-colors">
+                            Libros
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./pages/mangas.html" class="hover:text-indigo-600 transition-colors">
+                            Mangas
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./pages/comics.html" class="hover:text-indigo-600 transition-colors">
+                            Comics
+                        </a>
+                    </li>
                 </ul>
             </nav>
 
             <nav>
-                <ul>
-                    <li><a>INGRESAR</a></li>
-                    <li><a>FAVORITOS</a></li>
-                    <li><a>CARRITO DE COMPRAS</a></li>
+                <ul class="flex items-center gap-5">
+                    <li id="user-menu-container"></li>
+                    <li>
+                        <a href="./pages/wishlist.html" aria-label="Favoritos" class="relative inline-flex">
+                            <img src="./assets/icons/favorite.svg" class="w-5 h-5" alt="Icono de favoritos">
+                            <span id="wishlist-badge" class="hidden absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold rounded-full min-w-[16px] h-4 flex items-center justify-center px-1 leading-none">0</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./pages/cart.html" aria-label="Carrito de compras" class="relative inline-flex">
+                            <img src="./assets/icons/shopping-cart.svg" class="w-5 h-5" alt="Icono de carrito de compras">
+                            <span id="cart-badge" class="hidden absolute -top-2 -right-2 bg-indigo-600 text-white text-[10px] font-bold rounded-full min-w-[16px] h-4 flex items-center justify-center px-1 leading-none">0</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
-        </header>
 
-        <main>
-            <aside id="promo-heading">
+        </div>
+    </header>
 
-            </aside>
+    <main>
+        <!-- Hero & Search -->
+        <section class="bg-gradient-to-b from-indigo-50 to-white py-12 mb-8">
+            <div class="max-w-3xl mx-auto px-4 text-center">
+                <h2 class="text-3xl font-extrabold text-gray-900 mb-6">¿Qué estás buscando hoy?</h2>
+                <div class="relative max-w-2xl mx-auto text-left">
+                    <input type="text" id="search-input" placeholder="Buscar por título..." class="w-full pl-5 pr-12 py-4 rounded-full shadow-sm border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-lg">
+                    <button id="search-btn" class="absolute right-4 top-1/2 -translate-y-1/2 bg-indigo-600 text-white p-2 rounded-full hover:bg-indigo-700">
+                        <img src="./assets/icons/search.svg" class="w-5 h-5 filter invert" alt="Buscar">
+                    </button>
+                    
+                    <!-- Dropdown de resultados -->
+                    <div id="search-dropdown" class="absolute left-0 right-0 top-full mt-2 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden z-50 hidden max-h-96 overflow-y-auto">
+                        <ul id="search-results-list" class="divide-y divide-gray-100">
+                            <!-- Resultados insertados dinámicamente -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            <section id="main">
-                <h2>PRINCIPAL</h2>
-            </section>
+        <section class="py-8 max-w-7xl mx-auto">
+            <div class="flex items-center justify-between px-4 mb-6">
+                <h2 class="text-2xl font-extrabold text-gray-900 tracking-tight">Novedades</h2>
+                <a href="./pages/product-list.html" class="text-sm font-bold text-indigo-600 hover:text-indigo-700 transition-colors">Ver todo &rarr;</a>
+            </div>
+            <div class="flex gap-4 overflow-x-auto px-4 pb-6 snap-x snap-mandatory scrollbar-hide" id="new-releases-list"></div>
+        </section>
 
-            <section>
-                <h2>MÁS VENDIDOS</h2>
-            </section>
+        <section class="py-12 bg-gray-50 border-y border-gray-200">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex items-center justify-between px-4 mb-6">
+                    <h2 class="text-2xl font-extrabold text-gray-900 tracking-tight">Más vendidos</h2>
+                    <a href="./pages/product-list.html" class="text-sm font-bold text-indigo-600 hover:text-indigo-700 transition-colors">Ver todo &rarr;</a>
+                </div>
+                <div class="flex gap-4 overflow-x-auto px-4 pb-6 snap-x snap-mandatory scrollbar-hide" id="bestsellers-list"></div>
+            </div>
+        </section>
 
-            <section>
-                <h2>NOVEDADES</h2>
-            </section>
+        <section class="py-12 max-w-7xl mx-auto">
+            <div class="flex items-center justify-between px-4 mb-6">
+                <h2 class="text-2xl font-extrabold text-gray-900 tracking-tight">Recomendados</h2>
+                <a href="./pages/product-list.html" class="text-sm font-bold text-indigo-600 hover:text-indigo-700 transition-colors">Ver todo &rarr;</a>
+            </div>
+            <div class="flex gap-4 overflow-x-auto px-4 pb-6 snap-x snap-mandatory scrollbar-hide" id="recommended-list"></div>
+        </section>
+    </main>
 
-            <section>
-                <h2>RECOMENDADOS</h2>
-            </section>
+    <footer class="bg-[#4FB59B] text-white/80 mt-12">
+        <div class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
 
-            <section id="newsletter">
-
-            </section>
-        </main>
-
-        <footer>
             <nav>
-                <h3>EXPLORAR</h3>
-                <ul>
-                    <li><a>LISTA DE PRODUCOS</a></li>
-                    <li><a>LIBROS</a></li>
-                    <li><a>MANGAS</a></li>
-                    <li><a>COMICS</a></li>
+                <h3 class="text-white font-semibold tracking-wide uppercase text-sm mb-4">Explorar</h3>
+                <ul class="flex flex-col gap-2">
+                    <li><a href="./pages/product-list.html" class="hover:text-white transition-colors">Lista de
+                            Productos</a></li>
+                    <li><a href="./pages/books.html" class="hover:text-white transition-colors">Libros</a></li>
+                    <li><a href="./pages/mangas.html" class="hover:text-white transition-colors">Mangas</a></li>
+                    <li><a href="./pages/comics.html" class="hover:text-white transition-colors">Comics</a></li>
                 </ul>
             </nav>
 
             <nav>
-                <h3>INFORMACIÓN LEGAL</h3>
-                <ul>
-                    <li><a>POLÍTICA DE PRIVACIDAD</a></li>
-                    <li><a>TÉRMINOS Y CONDICIONES</a></li>
+                <h3 class="text-white font-semibold tracking-wide uppercase text-sm mb-4">Información Legal</h3>
+                <ul class="flex flex-col gap-2">
+                    <li><a href="#" class="hover:text-white transition-colors">Política de Privacidad</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Términos y Condiciones</a></li>
                 </ul>
             </nav>
 
-            <address>
-                <h3>CONTACTO</h3>
-                <p>
-                    <a href="mailto:info@mangateca.com">info@mangateca.com</a>
-                    <a href="tel:+1234567890">+1 (234) 567-890</a>
-                </p>
+            <address class="not-italic">
+                <h3 class="text-white font-semibold tracking-wide uppercase text-sm mb-4">Contactos</h3>
+                <ul class="flex flex-col gap-2">
+                    <li>
+                        <a href="mailto:info@mangateca.com" class="hover:text-white transition-colors">
+                            info@mangateca.com
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tel:+1234567890" class="hover:text-white transition-colors">
+                            +1 (234) 567-890
+                        </a>
+                    </li>
+                </ul>
             </address>
-            
-            <p>
-                <small>&copy; 2024 Mangateca. Todos los derechos reservados.</small>
+
+        </div>
+
+        <div class="border-t border-white/20">
+            <p class="max-w-7xl mx-auto px-6 py-4 text-center">
+                <small class="text-white/60">&copy; 2026 Mangateca. Todos los derechos reservados.</small>
             </p>
-        </footer>
-    </body>
+        </div>
+    </footer>
+</body>
+
 </html>
