@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mangateca - Detalle de Producto</title>
+    <title>Mangateca - Carrito de Compras</title>
+    <meta name="description" content="Revisa los productos en tu carrito de compras en Mangateca.">
     <link rel="stylesheet" href="../css/style.css">
-
     <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
-
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script type="module" src="../src/pages/product-detail.js"></script>
+    <script type="module" src="../src/pages/cart.js"></script>
 </head>
-<body>
+<body class="bg-gray-50">
     <header class="bg-gray-100 shadow-sm border-b border-gray-100">
         <div class="flex items-center justify-between px-8 py-5">
             <a href="../index.html" class="flex items-center gap-3 shrink-0">
@@ -69,17 +68,14 @@
             </nav>
         </div>
     </header>
-    
-    <main class="max-w-7xl mx-auto px-6 py-12 min-h-screen">
-        <div class="mb-8">
-            <button onclick="history.back()" class="flex items-center gap-2 text-indigo-600 hover:text-indigo-800 font-medium transition-colors cursor-pointer border border-indigo-200 rounded-full px-4 py-1 hover:bg-indigo-50">
-                <span class="text-xl">&larr;</span> Volver
-            </button>
+
+    <main class="max-w-5xl mx-auto px-6 py-12 min-h-screen">
+        <div class="mb-8 flex items-center justify-between">
+            <h2 class="text-3xl font-extrabold text-gray-900">Carrito de Compras</h2>
         </div>
 
-        <div id="product-detail-container">
-            <!-- Details will be injected here via product-detail.js -->
-        </div>
+        <!-- Contenido dinámico inyectado por cart.js -->
+        <div id="cart-container"></div>
     </main>
 
     <footer class="bg-[#4FB59B] text-white/80 mt-12">
@@ -93,7 +89,6 @@
                     <li><a href="../pages/comics.html" class="hover:text-white transition-colors">Comics</a></li>
                 </ul>
             </nav>
-
             <nav>
                 <h3 class="text-white font-semibold tracking-wide uppercase text-sm mb-4">Información Legal</h3>
                 <ul class="flex flex-col gap-2">
@@ -101,27 +96,17 @@
                     <li><a href="#" class="hover:text-white transition-colors">Términos y Condiciones</a></li>
                 </ul>
             </nav>
-
             <address class="not-italic">
                 <h3 class="text-white font-semibold tracking-wide uppercase text-sm mb-4">Contactos</h3>
                 <ul class="flex flex-col gap-2">
-                    <li>
-                        <a href="mailto:info@mangateca.com" class="hover:text-white transition-colors">
-                            info@mangateca.com
-                        </a>
-                    </li>
-                    <li>
-                        <a href="tel:+1234567890" class="hover:text-white transition-colors">
-                            +1 (234) 567-890
-                        </a>
-                    </li>
+                    <li><a href="mailto:info@mangateca.com" class="hover:text-white transition-colors">info@mangateca.com</a></li>
+                    <li><a href="tel:+1234567890" class="hover:text-white transition-colors">+1 (234) 567-890</a></li>
                 </ul>
             </address>
         </div>
-
         <div class="border-t border-white/20">
             <p class="max-w-7xl mx-auto px-6 py-4 text-center">
-                <small class="text-white/60">&copy; 2024 Mangateca. Todos los derechos reservados.</small>
+                <small class="text-white/60">&copy; 2026 Mangateca. Todos los derechos reservados.</small>
             </p>
         </div>
     </footer>

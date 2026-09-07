@@ -526,10 +526,9 @@ export function getCategoriesForProduct(productId) {
 export function searchProductsByTitle(query) {
   const normalized = query.trim().toLowerCase();
   if (!normalized) return [];
-  
+
   return products.filter((p) => {
     // Busca estrictamente por la inicial/comienzo del título completo
     return p.title.toLowerCase().startsWith(normalized);
   });
 }
-

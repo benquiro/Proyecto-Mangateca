@@ -1,4 +1,5 @@
 import '../services/cache-service.js';
+import '../services/header-service.js';
 import { getProductById, getCategoriesForProduct } from '../../db/products-db.js';
 import { renderFullProductDetail } from '../components/product-card.js';
 

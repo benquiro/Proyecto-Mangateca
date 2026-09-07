@@ -1,6 +1,11 @@
 // Raíz del proyecto derivada desde la ubicación de este módulo (src/components/)
 const ROOT = new URL('../../', import.meta.url).href;
 
+import { addToCart } from '../services/cart-service.js';
+import { toggleWishlist, isInWishlist } from '../services/wishlist-service.js';
+import { showToast } from '../services/notification-service.js';
+import { updateHeaderBadges } from '../services/header-service.js';
+
 export function renderSimpleProductCard(item) {
     return `
     <a href="${ROOT}pages/product-detail.html?id=${item.id}" class="flex-none w-40 snap-start group cursor-pointer block">
@@ -23,7 +28,7 @@ export function renderDetailedProductCard(item) {
     return `
     <a href="${ROOT}pages/product-detail.html?id=${item.id}" class="flex flex-col group cursor-pointer bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative">
         <!-- Favorite button -->
-        <button class="action-btn absolute top-3 right-3 z-10 bg-white/80 backdrop-blur-sm p-2 rounded-full text-gray-500 hover:text-red-500 hover:bg-white transition-all opacity-0 group-hover:opacity-100 shadow-sm" data-action="favorite" data-id="${item.id}" aria-label="Añadir a favoritos">
+        <button class="action-btn absolute top-3 right-3 z-10 bg-white/80 backdrop-blur-sm p-2 rounded-full transition-all opacity-0 group-hover:opacity-100 shadow-sm ${isInWishlist(item.id) ? 'text-red-500 hover:text-red-600' : 'text-gray-500 hover:text-red-500 hover:bg-white'}" data-action="favorite" data-id="${item.id}" aria-label="Añadir a favoritos">
             <div class="w-5 h-5 bg-current transition-colors" style="mask: url('${ROOT}assets/icons/favorite.svg') no-repeat center / contain; -webkit-mask: url('${ROOT}assets/icons/favorite.svg') no-repeat center / contain;"></div>
         </button>
 
@@ -87,7 +92,7 @@ export function renderFullProductDetail(item, categories = []) {
                     Añadir
                 </button>
 
-                <button class="action-btn bg-gray-50 text-gray-400 p-4 rounded-xl shadow-sm hover:bg-red-50 hover:text-red-500 transition-all border border-gray-200 flex items-center justify-center" data-action="favorite" data-id="${item.id}" aria-label="Añadir a favoritos">
+                <button class="action-btn p-4 rounded-xl shadow-sm transition-all border flex items-center justify-center ${isInWishlist(item.id) ? 'bg-red-50 text-red-500 border-red-200 hover:bg-red-100' : 'bg-gray-50 text-gray-400 border-gray-200 hover:bg-red-50 hover:text-red-500'}" data-action="favorite" data-id="${item.id}" aria-label="Añadir a favoritos">
                     <div class="w-7 h-7 bg-current transition-colors" style="mask: url('${ROOT}assets/icons/favorite.svg') no-repeat center / contain; -webkit-mask: url('${ROOT}assets/icons/favorite.svg') no-repeat center / contain;"></div>
                 </button>
             </div>
@@ -128,12 +133,24 @@ document.addEventListener('click', (e) => {
 
     const actions = {
         cart: () => {
-            console.log(`[Carrito] Producto ${productId}`);
-            // TODO: addToCart(productId)
+            addToCart(productId);
+            showToast('Añadido al carrito 🛒');
+            updateHeaderBadges();
+
+            // Feedback visual: breve scale-bounce en el botón
+            btn.classList.add('scale-90');
+            setTimeout(() => btn.classList.remove('scale-90'), 150);
         },
         favorite: () => {
-            console.log(`[Favorito] Producto ${productId}`);
-            // TODO: toggleFavorite(productId)
+            const added = toggleWishlist(productId);
+
+            // Toggle visual del color del ícono corazón
+            btn.classList.toggle('text-red-500', added);
+            btn.classList.toggle('text-gray-400', !added);
+            btn.classList.toggle('bg-red-50', added);
+
+            showToast(added ? 'Añadido a favoritos ♥' : 'Quitado de favoritos', added ? 'success' : 'info');
+            updateHeaderBadges();
         },
     };
 

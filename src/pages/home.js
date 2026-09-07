@@ -1,4 +1,5 @@
 import '../services/cache-service.js';
+import '../services/header-service.js';
 import { renderProductList, renderDetailedProductList } from '../services/render-service.js';
 import { ProductType, getProductsByType, searchProductsByTitle } from '../../db/products-db.js';
 
