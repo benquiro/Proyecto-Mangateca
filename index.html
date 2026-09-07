@@ -51,11 +51,7 @@
 
             <nav>
                 <ul class="flex items-center gap-5">
-                    <li>
-                        <a href="#" aria-label="Ingresar">
-                            <img src="./assets/icons/user.svg" class="w-5 h-5" alt="Icono de inicio de sesión">
-                        </a>
-                    </li>
+                    <li id="user-menu-container"></li>
                     <li>
                         <a href="./pages/wishlist.html" aria-label="Favoritos" class="relative inline-flex">
                             <img src="./assets/icons/favorite.svg" class="w-5 h-5" alt="Icono de favoritos">
@@ -95,21 +91,30 @@
             </div>
         </section>
 
-        <section class="py-8">
-            <h2 class="text-xl font-bold mb-4 px-4">Libros</h2>
-            <div class="flex gap-4 overflow-x-auto px-4 pb-4 snap-x snap-mandatory scrollbar-hide" id="book-list"></div>
+        <section class="py-8 max-w-7xl mx-auto">
+            <div class="flex items-center justify-between px-4 mb-6">
+                <h2 class="text-2xl font-extrabold text-gray-900 tracking-tight">Novedades</h2>
+                <a href="./pages/product-list.html" class="text-sm font-bold text-indigo-600 hover:text-indigo-700 transition-colors">Ver todo &rarr;</a>
+            </div>
+            <div class="flex gap-4 overflow-x-auto px-4 pb-6 snap-x snap-mandatory scrollbar-hide" id="new-releases-list"></div>
         </section>
 
-        <section class="py-8">
-            <h2 class="text-xl font-bold mb-4 px-4">Mangas</h2>
-            <div class="flex gap-4 overflow-x-auto px-4 pb-4 snap-x snap-mandatory scrollbar-hide" id="manga-list">
+        <section class="py-12 bg-gray-50 border-y border-gray-200">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex items-center justify-between px-4 mb-6">
+                    <h2 class="text-2xl font-extrabold text-gray-900 tracking-tight">Más vendidos</h2>
+                    <a href="./pages/product-list.html" class="text-sm font-bold text-indigo-600 hover:text-indigo-700 transition-colors">Ver todo &rarr;</a>
+                </div>
+                <div class="flex gap-4 overflow-x-auto px-4 pb-6 snap-x snap-mandatory scrollbar-hide" id="bestsellers-list"></div>
             </div>
         </section>
 
-        <section class="py-8">
-            <h2 class="text-xl font-bold mb-4 px-4">Comics</h2>
-            <div class="flex gap-4 overflow-x-auto px-4 pb-4 snap-x snap-mandatory scrollbar-hide" id="comic-list">
+        <section class="py-12 max-w-7xl mx-auto">
+            <div class="flex items-center justify-between px-4 mb-6">
+                <h2 class="text-2xl font-extrabold text-gray-900 tracking-tight">Recomendados</h2>
+                <a href="./pages/product-list.html" class="text-sm font-bold text-indigo-600 hover:text-indigo-700 transition-colors">Ver todo &rarr;</a>
             </div>
+            <div class="flex gap-4 overflow-x-auto px-4 pb-6 snap-x snap-mandatory scrollbar-hide" id="recommended-list"></div>
         </section>
     </main>
 

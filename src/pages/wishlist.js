@@ -93,7 +93,7 @@ function renderEmpty() {
                 <img src="${ROOT}assets/icons/favorite.svg" alt="" class="w-full h-full">
             </div>
             <h3 class="text-2xl font-bold text-gray-900 mb-3">Tu lista de favoritos está vacía</h3>
-            <p class="text-gray-500 mb-8 max-w-sm">Explorá el catálogo y guardá los productos que más te gusten para encontrarlos fácilmente.</p>
+            <p class="text-gray-500 mb-8 max-w-sm">Explora el catálogo y guarda los productos que más te gusten para encontrarlos fácilmente.</p>
             <a href="${ROOT}pages/product-list.html" class="bg-indigo-600 text-white font-bold px-8 py-3 rounded-xl shadow hover:bg-indigo-700 transition-colors">
                 Ver catálogo
             </a>

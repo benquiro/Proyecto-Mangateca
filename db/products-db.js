@@ -1,3 +1,16 @@
+/**
+ * products-db.js
+ * Base de datos de productos.
+ * Los datos hardcodeados sirven como semilla inicial.
+ * Una vez modificados por el admin se persisten en localStorage.
+ *
+ * Key localStorage: "mangateca_products"
+ *
+ * Ruta: db/products-db.js
+ */
+
+const PRODUCTS_KEY = 'mangateca_products';
+
 export const ProductType = Object.freeze({
   BOOK: "BOOK",
   MANGA: "MANGA",
@@ -501,22 +514,57 @@ export const products = [
   },
 ];
 
-
-export const productsById = new Map(products.map((p) => [p.id, p]));
 export const categoriesById = new Map(categories.map((c) => [c.id, c]));
 
+// ─── Persistencia dinámica ────────────────────────────────────────────────────
 
-export function getProductById(id) {
-  return productsById.get(id);
+/**
+ * Carga los productos desde localStorage.
+ * Si no hay datos guardados, usa los productos semilla hardcodeados.
+ * @returns {object[]}
+ */
+function loadProducts() {
+  try {
+    const stored = localStorage.getItem(PRODUCTS_KEY);
+    return stored ? JSON.parse(stored) : products;
+  } catch {
+    return products;
+  }
 }
 
+function saveProducts(list) {
+  localStorage.setItem(PRODUCTS_KEY, JSON.stringify(list));
+}
 
+function nextProductId(list) {
+  return list.length > 0 ? Math.max(...list.map(p => p.id)) + 1 : 1;
+}
+
+// ─── API de lectura ───────────────────────────────────────────────────────────
+
+/** @returns {object[]} Todos los productos actuales */
+export function getProducts() {
+  return loadProducts();
+}
+
+/**
+ * @param {number} id
+ * @returns {object|undefined}
+ */
+export function getProductById(id) {
+  return loadProducts().find(p => p.id === id);
+}
+
+/**
+ * @param {string} type — ProductType.BOOK | MANGA | COMIC
+ * @returns {object[]}
+ */
 export function getProductsByType(type) {
-  return products.filter((p) => p.type === type);
+  return loadProducts().filter(p => p.type === type);
 }
 
 export function getCategoriesForProduct(productId) {
-  const product = productsById.get(productId);
+  const product = getProductById(productId);
   if (!product) return [];
   return product.categoryIds
     .map((id) => categoriesById.get(id))
@@ -527,8 +575,59 @@ export function searchProductsByTitle(query) {
   const normalized = query.trim().toLowerCase();
   if (!normalized) return [];
 
-  return products.filter((p) => {
-    // Busca estrictamente por la inicial/comienzo del título completo
-    return p.title.toLowerCase().startsWith(normalized);
-  });
+  return loadProducts().filter(p =>
+    p.title.toLowerCase().startsWith(normalized)
+  );
+}
+
+// ─── API de escritura (admin) ─────────────────────────────────────────────────
+
+/**
+ * Agrega un nuevo producto.
+ * @param {object} productData — sin id (se genera automáticamente)
+ * @returns {object} El producto creado con su id
+ */
+export function addProduct(productData) {
+  const list = loadProducts();
+  const newProduct = { ...productData, id: nextProductId(list) };
+  list.push(newProduct);
+  saveProducts(list);
+  return newProduct;
+}
+
+/**
+ * Actualiza un producto existente.
+ * @param {number} id
+ * @param {object} data
+ * @returns {{ success: boolean, error?: string }}
+ */
+export function updateProduct(id, data) {
+  const list = loadProducts();
+  const index = list.findIndex(p => p.id === id);
+  if (index === -1) return { success: false, error: 'Producto no encontrado.' };
+
+  list[index] = { ...list[index], ...data };
+  saveProducts(list);
+  return { success: true };
+}
+
+/**
+ * Elimina un producto.
+ * @param {number} id
+ * @returns {{ success: boolean }}
+ */
+export function deleteProduct(id) {
+  const list = loadProducts().filter(p => p.id !== id);
+  saveProducts(list);
+  return { success: true };
+}
+
+/**
+ * Inicializa localStorage con la semilla si no hay datos guardados.
+ * Útil para asegurarse de que la BD esté lista al cargar la app.
+ */
+export function initProducts() {
+  if (!localStorage.getItem(PRODUCTS_KEY)) {
+    saveProducts(products);
+  }
 }

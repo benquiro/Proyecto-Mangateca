@@ -9,20 +9,30 @@
  */
 
 import { getProductById } from '../../db/products-db.js';
+import { getSession } from './auth-service.js';
 
-const CART_KEY = 'mangateca_cart';
+/** Retorna la key de localStorage para el carrito del usuario actual. */
+function getCartKey() {
+    const session = getSession();
+    return session ? `mangateca_cart_${session.userId}` : 'mangateca_cart';
+}
 
 /** @returns {{ productId: number, quantity: number }[]} */
 export function getCart() {
     try {
-        return JSON.parse(localStorage.getItem(CART_KEY)) ?? [];
+        return JSON.parse(localStorage.getItem(getCartKey())) ?? [];
     } catch {
         return [];
     }
 }
 
 function saveCart(cart) {
-    localStorage.setItem(CART_KEY, JSON.stringify(cart));
+    localStorage.setItem(getCartKey(), JSON.stringify(cart));
+}
+
+/** Vacía el carrito por completo. */
+export function clearCart() {
+    localStorage.removeItem(getCartKey());
 }
 
 /**
@@ -70,10 +80,6 @@ export function updateQuantity(productId, quantity) {
     }
 }
 
-/** Vacía el carrito por completo. */
-export function clearCart() {
-    localStorage.removeItem(CART_KEY);
-}
 
 /** @returns {number} Cantidad total de items (suma de quantities) */
 export function getCartCount() {

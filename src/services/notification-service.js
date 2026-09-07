@@ -28,7 +28,7 @@ export function showToast(message, type = 'success') {
     const icons = {
         success: '✓',
         error: '✕',
-        info: 'ℹ',
+        info: '',
     };
 
     toast.className = `

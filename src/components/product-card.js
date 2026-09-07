@@ -134,7 +134,7 @@ document.addEventListener('click', (e) => {
     const actions = {
         cart: () => {
             addToCart(productId);
-            showToast('Añadido al carrito 🛒');
+            showToast('Añadido al carrito');
             updateHeaderBadges();
 
             // Feedback visual: breve scale-bounce en el botón
@@ -149,7 +149,7 @@ document.addEventListener('click', (e) => {
             btn.classList.toggle('text-gray-400', !added);
             btn.classList.toggle('bg-red-50', added);
 
-            showToast(added ? 'Añadido a favoritos ♥' : 'Quitado de favoritos', added ? 'success' : 'info');
+            showToast(added ? 'Añadido a favoritos' : 'Quitado de favoritos', added ? 'success' : 'info');
             updateHeaderBadges();
         },
     };

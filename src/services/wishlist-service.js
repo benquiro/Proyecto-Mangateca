@@ -8,19 +8,25 @@
  * Ruta: src/services/wishlist-service.js
  */
 
-const WISHLIST_KEY = 'mangateca_wishlist';
+import { getSession } from './auth-service.js';
+
+/** Retorna la key de localStorage para la wishlist del usuario actual. */
+function getWishlistKey() {
+    const session = getSession();
+    return session ? `mangateca_wishlist_${session.userId}` : 'mangateca_wishlist';
+}
 
 /** @returns {number[]} */
 export function getWishlist() {
     try {
-        return JSON.parse(localStorage.getItem(WISHLIST_KEY)) ?? [];
+        return JSON.parse(localStorage.getItem(getWishlistKey())) ?? [];
     } catch {
         return [];
     }
 }
 
 function saveWishlist(list) {
-    localStorage.setItem(WISHLIST_KEY, JSON.stringify(list));
+    localStorage.setItem(getWishlistKey(), JSON.stringify(list));
 }
 
 /**

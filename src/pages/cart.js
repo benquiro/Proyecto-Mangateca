@@ -133,7 +133,7 @@ function renderEmpty() {
                 <img src="${ROOT}assets/icons/shopping-cart.svg" alt="" class="w-full h-full">
             </div>
             <h3 class="text-2xl font-bold text-gray-900 mb-3">Tu carrito está vacío</h3>
-            <p class="text-gray-500 mb-8 max-w-sm">¡Aún no agregaste nada! Explorá el catálogo y encontrá tu próxima lectura.</p>
+            <p class="text-gray-500 mb-8 max-w-sm">Explora el catálogo y añade productos a tu carrito para realizar tu compra.</p>
             <a href="${ROOT}pages/product-list.html" class="bg-indigo-600 text-white font-bold px-8 py-3 rounded-xl shadow hover:bg-indigo-700 transition-colors">
                 Ver catálogo
             </a>
@@ -190,7 +190,7 @@ function attachCartEvents() {
     const btnCheckout = document.getElementById('btn-checkout');
     if (btnCheckout) {
         btnCheckout.addEventListener('click', () => {
-            showToast('Función de pago próximamente 🚀', 'info');
+            showToast('Función de pago próximamente', 'info');
         });
     }
 }
