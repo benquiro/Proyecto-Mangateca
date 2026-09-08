@@ -1,1 +1,5 @@
-# Proyecto Biblioteca
+# Proyecto Mangateca
+## Stack
+- html
+- tailwind
+- js
