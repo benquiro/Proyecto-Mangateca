@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@theme {
+  /* Color representativo #4FB59B (brand-500).
+     El texto blanco sobre brand-500 no cumple WCAG AA (≈2.5:1),
+     por eso los botones con texto blanco y los enlaces usan brand-700 (≈4.9:1). */
+  --color-brand-50: #eef8f5;
+  --color-brand-100: #d5efe7;
+  --color-brand-200: #abdfcf;
+  --color-brand-300: #82cfb7;
+  --color-brand-400: #67c2a8;
+  --color-brand-500: #4fb59b;
+  --color-brand-600: #3e9a83;
+  --color-brand-700: #2e7d69;
+  --color-brand-800: #256454;
+  --color-brand-900: #1d4e42;
+
+  /* Coral del destello del logo: favoritos */
+  --color-coral-500: #e85d5d;
+  --color-coral-600: #d64545;
+}
+
+@utility scrollbar-none {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-white text-gray-900 antialiased;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand-500);
+    outline-offset: 2px;
+  }
+
+  /* Evita el scroll del fondo mientras hay un <dialog> modal abierto */
+  html:has(dialog[open]:modal) {
+    overflow: hidden;
+  }
+}
