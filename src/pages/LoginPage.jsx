@@ -68,20 +68,6 @@ export default function LoginPage() {
           Entrar
         </Button>
       </form>
-
-      <details className="mt-6 rounded-lg bg-gray-50 px-4 py-3 text-xs text-gray-600">
-        <summary className="cursor-pointer font-medium text-gray-700">Cuentas de prueba</summary>
-        <dl className="mt-2 grid grid-cols-[auto_1fr] gap-x-3 gap-y-1">
-          <dt className="font-medium">Admin</dt>
-          <dd>
-            <code>admin</code> / <code>Admin_Manga2026!</code>
-          </dd>
-          <dt className="font-medium">Cliente</dt>
-          <dd>
-            <code>cliente</code> / <code>Cliente_Manga2026!</code>
-          </dd>
-        </dl>
-      </details>
     </AuthCard>
   )
 }

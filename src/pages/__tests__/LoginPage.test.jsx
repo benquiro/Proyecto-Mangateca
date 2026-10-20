@@ -29,6 +29,7 @@ describe('Página LoginPage (LoginPage.jsx)', () => {
     expect(screen.getByLabelText('Usuario o email')).toBeInTheDocument()
     expect(screen.getByLabelText('Contraseña')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Entrar' })).toBeInTheDocument()
+    expect(screen.queryByText('Cuentas de prueba')).not.toBeInTheDocument()
   })
 
   it('muestra mensaje de error si se intenta enviar el formulario con campos vacíos', async () => {
