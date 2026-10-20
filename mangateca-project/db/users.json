@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "username": "admin",
+    "email": "admin@mangateca.com",
+    "password": "Admin_Manga2026!",
+    "role": "admin",
+    "createdAt": "2026-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 2,
+    "username": "cliente",
+    "email": "cliente@mangateca.com",
+    "password": "Cliente_Manga2026!",
+    "role": "client",
+    "createdAt": "2026-01-01T00:00:00.000Z"
+  }
+]

@@ -1,0 +1,70 @@
+[
+  {
+    "id": 1,
+    "name": "Realismo mágico"
+  },
+  {
+    "id": 2,
+    "name": "Clásico"
+  },
+  {
+    "id": 3,
+    "name": "Distopía"
+  },
+  {
+    "id": 4,
+    "name": "Fantasía"
+  },
+  {
+    "id": 5,
+    "name": "Aventura"
+  },
+  {
+    "id": 6,
+    "name": "Ciencia ficción"
+  },
+  {
+    "id": 7,
+    "name": "Novela gráfica"
+  },
+  {
+    "id": 8,
+    "name": "Superhéroes"
+  },
+  {
+    "id": 9,
+    "name": "Seinen"
+  },
+  {
+    "id": 10,
+    "name": "Terror"
+  },
+  {
+    "id": 11,
+    "name": "Romance"
+  },
+  {
+    "id": 12,
+    "name": "Shonen"
+  },
+  {
+    "id": 13,
+    "name": "Sátira"
+  },
+  {
+    "id": 14,
+    "name": "Policial negro"
+  },
+  {
+    "id": 15,
+    "name": "Infantil"
+  },
+  {
+    "id": 16,
+    "name": "Histórico"
+  },
+  {
+    "id": 17,
+    "name": "Suspenso"
+  }
+]
