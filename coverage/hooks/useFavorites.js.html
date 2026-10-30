@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">36% </span>
+                <span class="strong">72% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>9/25</span>
+                <span class='fraction'>18/25</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">7.14% </span>
+                <span class="strong">28.57% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/14</span>
+                <span class='fraction'>4/14</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">30% </span>
+                <span class="strong">80% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/10</span>
+                <span class='fraction'>8/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">40% </span>
+                <span class="strong">70% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>8/20</span>
+                <span class='fraction'>14/20</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -136,13 +136,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">216x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useMemo } from 'react'
@@ -176,14 +176,14 @@ export function useFavorite(productId) {
 }
 &nbsp;
 /** Productos favoritos del usuario actual, ignorando los que el admin haya eliminado. */
-export function <span class="fstat-no" title="function not covered" >useFavoriteProducts() {</span>
-  const { user } = <span class="cstat-no" title="statement not covered" >useCurrentUser()</span>
-  const ids = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >useFavoritesStore((<span class="cstat-no" title="statement not covered" >s</span>tate) =&gt; (user ? state.byUser[user.id] : null) ?? NO_FAVORITES)</span></span>
-  const products = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >useProductsStore((s</span>tate) =&gt; <span class="cstat-no" title="statement not covered" >state.products)</span></span>
+export function useFavoriteProducts() {
+  const { user } = useCurrentUser()
+  const ids = useFavoritesStore((state) =&gt; (user ? <span class="branch-0 cbranch-no" title="branch not covered" >state.byUser[user.id] : n</span>ull) ?? NO_FAVORITES)
+  const products = useProductsStore((state) =&gt; state.products)
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return <span class="fstat-no" title="function not covered" >useMemo(() =&gt; {</span></span>
-    const byId = <span class="cstat-no" title="statement not covered" >new Map(products.<span class="fstat-no" title="function not covered" >map((p</span>roduct) =&gt; <span class="cstat-no" title="statement not covered" >[product.id, product])</span>)</span>
-<span class="cstat-no" title="statement not covered" >    return ids.<span class="fstat-no" title="function not covered" >map((i</span>d) =&gt; <span class="cstat-no" title="statement not covered" >byId.get(id))</span>.filter(Boolean)</span>
+  return useMemo(() =&gt; {
+    const byId = new Map(products.map((product) =&gt; [product.id, product]))
+    return ids.<span class="fstat-no" title="function not covered" >map((i</span>d) =&gt; <span class="cstat-no" title="statement not covered" >byId.get(id))</span>.filter(Boolean)
   }, [ids, products])
 }
 &nbsp;</pre></td></tr></table></pre>
@@ -193,7 +193,7 @@ export function <span class="fstat-no" title="function not covered" >useFavorite
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-10-20T01:32:43.892Z
+                at 2026-10-30T19:03:39.757Z
             </div>
         <script src="../prettify.js"></script>
         <script>

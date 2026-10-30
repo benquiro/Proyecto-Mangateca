@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">58.82% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/17</span>
+                <span class='fraction'>10/17</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">43.75% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/16</span>
+                <span class='fraction'>7/16</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">40% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>2/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">71.42% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/14</span>
+                <span class='fraction'>10/14</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -116,28 +116,28 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -160,29 +160,29 @@ import { cn } from '../../lib/cn.js'
  * Modal sobre &lt;dialog&gt; nativo: atrapa el foco, se cierra con Esc y al hacer clic en el fondo.
  * Es controlado: `open` decide si se muestra y `onClose` pide cerrarlo.
  */
-export function <span class="fstat-no" title="function not covered" >Modal({</span> open, onClose, labelledBy, className, children }) {
-  const dialogRef = <span class="cstat-no" title="statement not covered" >useRef(null)</span>
-  const pointerDownOnBackdrop = <span class="cstat-no" title="statement not covered" >useRef(false)</span>
+export function Modal({ open, onClose, labelledBy, className, children }) {
+  const dialogRef = useRef(null)
+  const pointerDownOnBackdrop = useRef(false)
 &nbsp;
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  useEffect(() =&gt; {</span></span>
-    const dialog = <span class="cstat-no" title="statement not covered" >dialogRef.current</span>
-<span class="cstat-no" title="statement not covered" >    if (open &amp;&amp; !dialog.open) <span class="cstat-no" title="statement not covered" >dialog.showModal()</span></span>
-<span class="cstat-no" title="statement not covered" >    if (!open &amp;&amp; dialog.open) <span class="cstat-no" title="statement not covered" >dialog.close()</span></span>
+  useEffect(() =&gt; {
+    const dialog = dialogRef.current
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (open &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >!dialog.open) <span class="cstat-no" title="statement not covered" >d</span>ialog.showModal()</span>
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!open &amp;&amp; dialog.open) <span class="cstat-no" title="statement not covered" >dialog.close()</span>
   }, [open])
 &nbsp;
   // Se cierra solo si el clic empezó y terminó en el fondo (evita cerrar al seleccionar texto).
-  const <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >handlePointerDown = (e</span>vent) =&gt; {</span>
+  const <span class="fstat-no" title="function not covered" >handlePointerDown = (e</span>vent) =&gt; {
 <span class="cstat-no" title="statement not covered" >    pointerDownOnBackdrop.current = event.target === event.currentTarget</span>
   }
-  const <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >handleClick = (e</span>vent) =&gt; {</span>
+  const <span class="fstat-no" title="function not covered" >handleClick = (e</span>vent) =&gt; {
 <span class="cstat-no" title="statement not covered" >    if (pointerDownOnBackdrop.current &amp;&amp; event.target === event.currentTarget) <span class="cstat-no" title="statement not covered" >onClose()</span></span>
   }
-  const <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >handleCancel = (e</span>vent) =&gt; {</span>
+  const <span class="fstat-no" title="function not covered" >handleCancel = (e</span>vent) =&gt; {
 <span class="cstat-no" title="statement not covered" >    event.preventDefault()</span>
 <span class="cstat-no" title="statement not covered" >    onClose()</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return (</span>
+  return (
     &lt;dialog
       ref={dialogRef}
       aria-labelledby={labelledBy}
@@ -191,10 +191,10 @@ export function <span class="fstat-no" title="function not covered" >Modal({</sp
       onClick={handleClick}
       className={cn(
         'm-auto max-h-[calc(100dvh-2rem)] w-[calc(100%-2rem)] overflow-y-auto overscroll-contain rounded-2xl bg-white p-0 text-gray-900 shadow-2xl backdrop:bg-gray-900/50 backdrop:backdrop-blur-sm',
-        className ?? 'max-w-lg',
+        className ?? <span class="branch-1 cbranch-no" title="branch not covered" >'max-w-lg',</span>
       )}
     &gt;
-      {open &amp;&amp; children}
+      {open &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >children}</span>
     &lt;/dialog&gt;
   )
 }
@@ -205,7 +205,7 @@ export function <span class="fstat-no" title="function not covered" >Modal({</sp
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-10-20T01:32:43.892Z
+                at 2026-10-30T19:03:39.757Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

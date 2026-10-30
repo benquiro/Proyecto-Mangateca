@@ -11,8 +11,8 @@ describe('Página LoginPage (LoginPage.jsx)', () => {
     useAuthStore.getState().logout()
     useUsersStore.setState({
       users: [
-        { id: 1, username: 'admin', email: 'admin@mangateca.com', password: 'Admin_Manga2026!', role: 'admin' },
-        { id: 2, username: 'cliente', email: 'cliente@mangateca.com', password: 'Cliente_Manga2026!', role: 'client' },
+        { id: 1, username: 'admin', email: 'admin@mangateca.com', password: 'Demo1234', role: 'admin' },
+        { id: 2, username: 'cliente', email: 'cliente@mangateca.com', password: 'Demo1234', role: 'client' },
       ],
     })
     window.sessionStorage.clear()
@@ -78,7 +78,7 @@ describe('Página LoginPage (LoginPage.jsx)', () => {
     const submitBtn = screen.getByRole('button', { name: 'Entrar' })
 
     await user.type(userInput, 'cliente')
-    await user.type(passInput, 'Cliente_Manga2026!')
+    await user.type(passInput, 'Demo1234')
     await user.click(submitBtn)
 
     // Verifica que el store de autenticación se actualizó

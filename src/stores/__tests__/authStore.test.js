@@ -15,14 +15,14 @@ describe('useAuthStore (authStore.js)', () => {
 
   it('inicia sesión correctamente con nombre de usuario válido', () => {
     // Cuenta admin semilla
-    const user = useAuthStore.getState().login('admin', 'Admin_Manga2026!')
+    const user = useAuthStore.getState().login('admin', 'Demo1234')
     expect(user).toBeDefined()
     expect(user?.username).toBe('admin')
     expect(useAuthStore.getState().currentUserId).toBe(user?.id)
   })
 
   it('inicia sesión correctamente con email e insensibilidad a mayúsculas/minúsculas', () => {
-    const user = useAuthStore.getState().login('ADMIN@MANGATECA.COM', 'Admin_Manga2026!')
+    const user = useAuthStore.getState().login('ADMIN@MANGATECA.COM', 'Demo1234')
     expect(user).toBeDefined()
     expect(user?.role).toBe('admin')
     expect(useAuthStore.getState().currentUserId).toBe(user?.id)
@@ -36,7 +36,7 @@ describe('useAuthStore (authStore.js)', () => {
 
   it('el cierre de sesión (logout) restablece currentUserId y vacía el carrito', () => {
     // Iniciar sesión y agregar producto
-    useAuthStore.getState().login('cliente', 'Cliente_Manga2026!')
+    useAuthStore.getState().login('cliente', 'Demo1234')
     useCartStore.getState().addItem(1, 2)
     expect(useCartStore.getState().items).toHaveLength(1)
 

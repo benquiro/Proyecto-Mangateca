@@ -14,11 +14,11 @@ describe('useUsersStore (usersStore.js)', () => {
 
   it('permite buscar usuario por username o email con findByCredentials', () => {
     const store = useUsersStore.getState()
-    const byUser = store.findByCredentials('admin', 'Admin_Manga2026!')
+    const byUser = store.findByCredentials('admin', 'Demo1234')
     expect(byUser).not.toBeNull()
     expect(byUser?.username).toBe('admin')
 
-    const byEmail = store.findByCredentials('cliente@mangateca.com', 'Cliente_Manga2026!')
+    const byEmail = store.findByCredentials('cliente@mangateca.com', 'Demo1234')
     expect(byEmail).not.toBeNull()
     expect(byEmail?.username).toBe('cliente')
   })
