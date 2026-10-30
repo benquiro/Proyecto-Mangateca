@@ -33,6 +33,7 @@ export const router = createBrowserRouter([
       },
       {
         Component: GuestOnly,
+        handle: { hideFooter: true },
         children: [
           { path: 'login', Component: LoginPage },
           { path: 'registro', Component: RegisterPage },
@@ -41,6 +42,7 @@ export const router = createBrowserRouter([
       {
         path: 'admin',
         Component: RequireAdmin,
+        handle: { hideFooter: true },
         children: [
           {
             lazy: lazyPage(() => import('./pages/admin/AdminLayout.jsx')),
@@ -52,7 +54,7 @@ export const router = createBrowserRouter([
           },
         ],
       },
-      { path: '*', Component: NotFoundPage },
+      { path: '*', Component: NotFoundPage, handle: { hideFooter: true } },
     ],
   },
 ])

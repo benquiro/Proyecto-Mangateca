@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 /** Marco común de las páginas de login y registro. */
 export function AuthCard({ title, description, children, footer }) {
   return (
-    <div className="bg-gradient-to-b from-brand-50 to-white px-4 py-12 sm:py-16">
+    <div className="flex flex-1 flex-col justify-center bg-gradient-to-b from-brand-50 to-white px-4 py-12 sm:py-16">
       <div className="mx-auto w-full max-w-md">
         <div className="text-center">
           <Link to="/" aria-label="Volver a la portada de Mangateca" className="inline-block">
@@ -16,6 +16,9 @@ export function AuthCard({ title, description, children, footer }) {
           {children}
         </div>
         {footer && <div className="mt-6 text-center text-sm text-gray-600">{footer}</div>}
+        <p className="mt-8 text-center text-xs text-gray-400">
+          © {new Date().getFullYear()} Mangateca · Tienda de demostración
+        </p>
       </div>
     </div>
   )

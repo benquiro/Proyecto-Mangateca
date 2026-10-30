@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
-import { FormError, SelectField, TextAreaField, TextField } from '../FormFields.jsx'
+import { FormError, SelectField, TextField } from '../FormFields.jsx'
 
 describe('Componentes FormFields (FormFields.jsx)', () => {
   describe('TextField', () => {

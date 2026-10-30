@@ -1,10 +1,13 @@
-import { Outlet, ScrollRestoration } from 'react-router'
+import { Outlet, ScrollRestoration, useMatches } from 'react-router'
 import { ProductDetailModal } from '../product/ProductDetailModal.jsx'
 import { Toaster } from '../ui/Toaster.jsx'
 import { Footer } from './Footer.jsx'
 import { Header } from './Header.jsx'
 
 export function RootLayout() {
+  const matches = useMatches()
+  const hideFooter = matches.some((match) => match.handle?.hideFooter)
+
   return (
     <div className="flex min-h-dvh flex-col">
       <a
@@ -14,10 +17,10 @@ export function RootLayout() {
         Saltar al contenido
       </a>
       <Header />
-      <main id="contenido" className="flex-1">
+      <main id="contenido" className="flex flex-1 flex-col">
         <Outlet />
       </main>
-      <Footer />
+      {!hideFooter && <Footer />}
       <ProductDetailModal />
       <Toaster />
       <ScrollRestoration />

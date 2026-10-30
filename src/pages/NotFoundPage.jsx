@@ -4,7 +4,7 @@ import { buttonClasses } from '../components/ui/buttonStyles.js'
 
 export default function NotFoundPage() {
   return (
-    <Container className="grid min-h-[60vh] place-items-center py-16 text-center">
+    <Container className="grid flex-1 place-items-center py-16 text-center">
       <title>Página no encontrada · Mangateca</title>
       <div>
         <p className="text-6xl font-bold text-brand-500">404</p>

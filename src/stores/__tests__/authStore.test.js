@@ -1,7 +1,6 @@
 import { beforeEach, describe, expect, it } from 'vitest'
 import { useAuthStore } from '../authStore.js'
 import { useCartStore } from '../cartStore.js'
-import { useUsersStore } from '../usersStore.js'
 
 describe('useAuthStore (authStore.js)', () => {
   beforeEach(() => {
