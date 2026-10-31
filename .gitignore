@@ -1,43 +1,33 @@
-# Dependencias
+# Node / JS
 node_modules/
-
-# Build
 dist/
-dist-ssr/
-build/
-
-# Coverage de tests
-coverage/
-
-# Variables de entorno (pueden tener secretos)
-.env
-.env.local
-.env.*.local
-
-# Logs
-logs/
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-
-# Cachés de herramientas
-.eslintcache
-*.tsbuildinfo
 .vite/
-.cache/
+coverage/
+*.tsbuildinfo
 
-# Editor / IDE
-.vscode/*
-!.vscode/extensions.json
-!.vscode/settings.json
+# Java / Maven
+target/
+!.mvn/wrapper/maven-wrapper.jar
+*.class
+*.log
+
+# IDEs
 .idea/
-*.swp
-*.suo
+*.iml
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
 
-# Sistema operativo
+# SO
 .DS_Store
 Thumbs.db
+
+# Entorno y secretos
+.env
+.env.*
+!.env.example
+
+# Docker local
+infra/**/data/
 
 /docs
