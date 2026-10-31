@@ -1,4 +1,4 @@
-name: Node.js CI
+name: ci
 
 on:
   push:
@@ -15,6 +15,7 @@ concurrency:
 
 jobs:
   build:
+    name: Tests
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
