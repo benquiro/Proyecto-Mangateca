@@ -29,5 +29,4 @@ Thumbs.db
 
 # Docker local
 infra/**/data/
-
-/docs
+docs/
